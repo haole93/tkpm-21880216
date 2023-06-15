@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+  <form action="/users/login" method="post" id="formLogin">
+    <h3 class="text-center">Login</h3>
+    <div class="mb-3">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email address"
+        class="form-control"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        class="form-control" required>     
+    </div>
+    <div class="mb-3">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="keepSignedIn" name="keepSignedIn">
+        <label class="custom-control-label" for="newacount">Keep Signed In</label>
+      </div>
+    </div>
+    <button type="submit" class="form-control btn mb-2">Login</button>
+    <a class="readmore text-center" btn btn-link href="#">Forgot your password?</a>
+    {{#if loginMessage}}
+    <div class="mb-3">
+      <div class="p-3 mt-3 alert alert-warning">{{loginMessage}}</div>
+    </div>
+    {{/if}}
+    <input type="hidden" name="reqUrl" value="{{reqUrl}}">
+  </form>
+</div>
+</div>

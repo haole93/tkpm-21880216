@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+    <div class="mb-3"></div>
+    <form action="/users/register" method="post" id="formSignUp">
+        <h3 class="text-center">Register</h3>
+    <div class="mb-3">    
+                        <div class="register-form">
+                            <div class="row">
+                                <div class="mb-3">
+                                    <label>Full Name</label>
+                                    <input class="form-control" type="text" placeholder="Name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>E-mail</label>
+                                    <input class="form-control" type="email" name="email" placeholder="E-mail"
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Password</label>
+                                    <input class="form-control" type="password" name="password" placeholder="Password"
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required
+                                        onchange="checkPasswordConfirm('formSignUp')">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Confirm Password</label>
+                                    <input class="form-control" type="password" name="confirmpassword" placeholder="Confirm Password" required
+                                    onkeyup="checkPasswordConfirm('formSignUp')">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Mobile No</label>
+                                    <input class="form-control" type="text" name="phone" placeholder="Mobile No" required>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if registerMessage}}
+                    <div class="mb-3">
+                       <div class="p-3 mt-3 alert alert-warning">{{registerMessage}}</div>
+                    </div>
+                    {{/if}}
+                    <input type="hidden" name="reqUrl" value="{{reqUrl}}">
+                    </form>
+    <div class="mb-3"></div>
+</div>
+</div>

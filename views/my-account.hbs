@@ -1,0 +1,125 @@
+        <!-- My Account Start -->
+        <div class="my-account">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#dashboard-tab" role="tab">Dashboard</a>
+                            <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab">Orders</a>
+                            <a class="nav-link" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab">Payment Method</a>
+                            <a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab">Address</a>
+                            <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab">Account Details</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav">
+                                <h4>Dashboard</h4>
+                                {{#with user}}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5>Name: {{name}}</h5>
+                                        <p>Email: {{email}}</p>
+                                        <p>Mobile phone: {{phone}}</p>
+                                    </div>
+                                </div>
+                                {{/with}}
+                            </div>
+                            <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Order</th>
+                                                <th>Date</th>
+                                                <th>Price</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each orders}}
+                                            <tr>
+                                                <td><a href="/users/my-account/viewOrder/{{id}}">View Details</a></td>
+                                                <td>{{createdAt}}</td>
+                                                <td>${{total}}</td>
+                                                <td>{{process}}</td>
+                                                <td><a href="/users/my-account/cancelOrder/{{id}}" class="btn btn-primary" style="background-color:green">Cancel</a></td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="payment-tab" role="tabpanel" aria-labelledby="payment-nav">
+                                <h4>Payment Method</h4>
+                                <div class="row">
+                                    <a href="#" class="btn btn-primary" style="background-color:#006400; width:180px; margin-top:10px">Add Card</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="address-tab" role="tabpanel" aria-labelledby="address-nav">
+                                <div class="row">
+                                    {{#each addresses}}
+                                    <div class="col-md-6">
+                                        <h5>{{name}}</h5>
+                                        <p>{{email}}</p>
+                                        <p>{{phone}}</p>
+                                        <p>{{address}}, {{city}}</p>
+                                        <a href="/users/my-account/editAddress/{{id}}" class="btn btn-primary" style="background-color:green">Edit</a>
+                                        <a href="/users/my-account/deleteAddress/{{id}}" class="btn btn-primary" style="background-color:green">Delete</a>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                                <div class="row">
+                                    <a href="/users/my-account/addAddress/{{userId}}" class="btn btn-primary" style="background-color:#006400; width:180px; margin-top:10px">Add new address</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
+                                <h4>Account Details</h4>
+                                {{#with user}}
+                                <form action="/users/my-account/updateAccount/{{id}}" method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Name" name="name" value="{{name}}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Mobile" name="phone" value="{{phone}}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Email" name="email" value="{{email}}">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button>Update Account</button>
+                                        <br><br>
+                                    </div>
+                                </div>
+                                </form>
+                                {{/with}}
+                                <h4>Password change</h4>
+                                <form action="/users/my-account/changePassword/{{userId}}" method="post" id="changePassword">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="password" placeholder="Current Password" name="oldpassword">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="password" placeholder="New Password" name="password"
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required
+                                        onchange="checkPasswordConfirm('changePassword')">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="password" placeholder="Confirm Password" name="confirmpassword" required
+                                    onkeyup="checkPasswordConfirm('changePassword')">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn" type="submit">Save Changes</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Account End -->

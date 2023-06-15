@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+    <div class="mb-3"></div>
+    {{#with address}}
+    <form action="/users/my-account/editAddress/{{id}}" method="post" id="addProduct">
+        <h3 class="text-center">Edit Address</h3>
+    <div class="mb-3">    
+                        <div class="addProduct">
+                            <div class="row">
+                                <div class="mb-3">
+                                    <label> Name</label>
+                                    <input class="form-control" type="text" placeholder="Name" name="name" value="{{name}}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Email</label>
+                                    <input class="form-control" type="email" name="email" placeholder="Email" value="{{email}}" required
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Phone</label>
+                                    <input class="form-control" type="number" name="phone" placeholder="Phone" value="{{phone}}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Address</label>
+                                    <input class="form-control" type="text" name="address" placeholder="Address" value="{{address}}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>City</label>
+                                    <input class="form-control" type="text" name="city" placeholder="City" value="{{city}}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn" type="submit">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+    <div class="mb-3"></div>
+    {{/with}}
+</div>
+</div>

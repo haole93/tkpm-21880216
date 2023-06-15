@@ -1,0 +1,13 @@
+<div class="col-md-3">
+  <div class="sidebar-widget category" id="leftcolumn">
+    <h5 class="title">Shop by category</h5>
+    <ul>
+      {{#each categories}}
+        <div class="row">
+          <a href="/products?category={{id}}">{{name}}</a>
+        </div>
+      {{/each}}
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="container" id="orderDetails">
+<div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody class="align-middle">
+                  {{#each orders}}
+                    <tr id="order{{id}}">
+                        {{#with Product}}
+                        <td>{{name}}</td>
+                        {{/with}}
+                      <td>{{quantity}}</td>
+                      <td>{{price}}</td>
+                      <td>{{total}}</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+</div>
+</div>
