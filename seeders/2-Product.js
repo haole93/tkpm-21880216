@@ -58,7 +58,7 @@ module.exports = {
       },
       {
         name: 'Awakening Gift Set',
-        imagePath: '/images/product-7.jpg',
+        imagePath: '/images/product-7.png',
         price: 69.0,
         description:
           'Make Matcha the traditional way, with our best-selling organic, ceremonial-grade Uji Matcha',

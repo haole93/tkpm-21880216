@@ -7,10 +7,17 @@ module.exports = {
       {
         name: "Admin",
         email: "hello@example.com",
-        password: "admin",
+        password: "Demo@123",
         phone: "1234567",
         isAdmin: true,
       },
+      {
+        name: "Phong",
+        email: "phong@example.com",
+        password: "Demo@123",
+        phone: "1234567",
+        isAdmin: false,
+      }
     ];
     data.forEach(item => {
       item.createdAt = Sequelize.literal("NOW()");
